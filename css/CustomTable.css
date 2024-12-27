@@ -1,0 +1,68 @@
+/* Container for the table */
+.CustomTableContainer {
+    max-height: calc(100vh - 200px); /* Adjust height to fit within the screen, accounting for header */
+    overflow-y: auto; /* Enable vertical scrolling */
+    overflow-x: auto; /* Enable horizontal scrolling for wide tables */
+    margin: 0px; /* Optional: Add some spacing around the container */
+    padding: 0.4%;
+    border: groove;
+    border-width: 2px;
+    border-color: #130b56;
+    border-radius: 0.66rem;
+    z-index: 10;
+}
+
+/* Styling for the table */
+.CustomTable {
+    font-family: Roboto, 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    width: 100%; /* Make the table take up full width of the container */
+    font-style: normal;
+    font-weight: 400;   
+    font-size: 1.2rem;
+    border-collapse: collapse; /* Ensure cells are snugly aligned */
+    /* border: none;  /* Remove table border */
+    border-radius: 1rem;
+
+    /*overflow: hidden;*/
+}
+
+/* Table header styling */
+.CustomTable th {
+    position: sticky; /* Make headers fixed during scroll */
+    top: 0; /* Stick to the top of the table container */
+    background-color: #ede781; /* Add a light background for headers */
+    font-weight: bold;
+    border-bottom: 1px solid #ddd; /* Optional: Add a subtle bottom border for clarity */
+    padding: 8px; /* Space inside cells */
+    font-size: 1.1rem;
+}
+
+/* Table caption styling */
+.CustomTable caption {
+    position: sticky; /* Make caption fixed during scroll */
+    top: -30px; /* Position it above the headers */
+    /*background-color: #fff; */ /* Ensure caption background matches the page */
+    text-align: left; /* Align caption text to the left */
+    padding: 5px; /* Add some padding */
+    font-size: 1.3rem; /* Make it slightly larger */
+    font-weight: bold;
+    color: #ede781;
+}
+
+/* Styling for table cells */
+.CustomTable td {
+    padding: 8px; /* Add padding for readability */
+    border: none; /* Remove cell borders */
+    font-size: 0.92rem;
+}
+
+/* Add zebra-striping to rows for readability */
+.CustomTable tr:nth-child(even) {
+    color: black;
+    background-color: #fffeeb;
+}
+
+.CustomTable tr:nth-child(odd) {
+    color: black;
+    background-color: #e7e7e7;
+}

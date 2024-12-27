@@ -1,0 +1,98 @@
+/* Modal background color */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed;
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.6); /* Dark background with transparency */
+    padding-top: 100px;
+    transition: opacity 0.3s ease;
+}
+
+/* Modal content styling */
+.modal-content {
+    background-color: #fff;
+    color: black;
+    margin: auto;
+    padding: 15px;
+    border-radius: 8px;
+    width: 50%;
+    max-width: 500px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+    position: relative; /* Ensure children like .close are positioned relative to this container */
+}
+
+.modal-content p {
+    margin: 0; /* Removes default margin from the text inside the modal */
+    padding: 0; /* Ensures no extra padding is applied to the text */
+}
+
+/* Close button styling */
+.close {
+    color: #aaa;
+    font-size: 25px;
+    font-weight: bold;
+    position: absolute;
+    top: 0px;
+    right: 5px;
+    cursor: pointer;
+}
+
+.close:hover,
+.close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* Fade-in effect for modal */
+.modal.fade-in {
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.modal.fade-in.show {
+    opacity: 1;
+}
+
+/* Make modal content responsive */
+@media screen and (max-width: 600px) {
+    .modal-content {
+        width: 90%;  /* Take up more space on smaller screens */
+        padding: 15px;
+    }
+}
+
+
+
+#systemResults {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    max-height: 200px;
+    overflow-y: auto;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background-color: white;
+    color: black;
+    position: absolute;
+    width: 100%;
+    z-index: 1000;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+#systemResults li {
+    color: black;
+    padding: 5px;
+    cursor: pointer;
+}
+
+#systemResults li:hover {
+    background-color: #f0f0f0;
+    color: black;
+    list-style-type: none;
+}

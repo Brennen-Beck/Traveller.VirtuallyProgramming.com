@@ -1,0 +1,50 @@
+body{
+    background-size: cover;
+    background-color: #010012;    
+}
+
+
+.video-content {
+    position: absolute;
+    top: 0;
+    left: 0%;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
+    overflow: hidden;
+}
+
+.video-content video, .video-content img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
+}
+
+
+.video-content.fade-out {
+    opacity: 0;
+    transition: opacity 0.75s ease-out;
+}
+
+
+.video-content.fade-in {
+    opacity: 1;
+    transition: opacity 0.75s ease-in;
+}
+
+.content {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: #edc381;
+    height: 100%;
+}
