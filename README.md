@@ -1,5 +1,6 @@
 # Traveller.VirtuallyProgramming.com
- ##My Traveller Web App
+ ## My Traveller Web App
+ 
 
 This is the website code for my front-end web app for my Traveller game. Technically, it's the entire website including pages that are not part of the web app, but currently the landing page is the only such page and even it shares a menu with the web app, which is sort of the 2.0 version of my "Traveller Trade Calculator". Although that being said, there is a C# Windows Forms app which is literally the "Traveller Trade Calculator 2.0". The web app and Windows Forms app do roughly the same end and literally manipulate the same database.
 
