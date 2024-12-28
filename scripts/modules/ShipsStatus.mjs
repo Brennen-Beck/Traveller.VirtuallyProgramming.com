@@ -1,48 +1,51 @@
+import { LocalGameID } from "./Globals.mjs";
+
+
 class Ship 
 {
     constructor(ShipDataResultSet) //, HullSize, JDrive, FuelCapacity, FuelOnboard, RefinedFuel, ShipsBank, Day, Year, Time, CargoSpace,CargoSpaceFree, System, SystemUWP, CrewStandardOfLiving, PassengersStandardOfLiving, MaintenanceDay, MaintenanceYear, Mortgage, Payments, BuyBrokerAttempts, SellBrokerAttempts, LowBerths, LowPassengers, Basic, BasicPassengers, Middle, MiddlePassengers, High, HighPassengers, Luxury, LuxuryPassengers, PassengerDestination, PassengerDestinationSector, PassengerDestinationSystem)
     {
         
-        this.ShipName =ShipDataResultSet.shipName;
-        this.HullSize =ShipDataResultSet.hullSize;
-        this.JDrive =ShipDataResultSet.jDrive;
-        this.FuelCapacity =ShipDataResultSet.fuelCapacity;
-        this.FuelOnboard =ShipDataResultSet.fuelOnboard;
-        this.RefinedFuel =ShipDataResultSet.refinedFuel;
-        this.ShipsBank =ShipDataResultSet.shipsBank;
-        this.Day =ShipDataResultSet.day;
-        this.Year =ShipDataResultSet.year;
-        this.Time =ShipDataResultSet.time;
-        this.CargoSpace =ShipDataResultSet.cargoSpace;
-        this.CargoSpaceFilled =ShipDataResultSet.cargoSpaceFilled;
-        this.System =ShipDataResultSet.system;
-        this.SystemUWP =ShipDataResultSet.systemUWP;
-        this.CrewStandardOfLiving =ShipDataResultSet.crewStandardOfLiving;
-        this.PassengersStandardOfLiving =ShipDataResultSet.passengersStandardOfLiving;
-        this.MaintenanceDay =ShipDataResultSet.maintenanceDay;
-        this.MaintenanceYear =ShipDataResultSet.maintenanceYear;
-        this.MaintenanceDue =ShipDataResultSet.maintenanceDue;
-        this.Mortgage =ShipDataResultSet.mortgage;
-        this.Payments =ShipDataResultSet.payments;
-        this.MortgageDay =ShipDataResultSet.mortgageDay;
-        this.MortgageYear =ShipDataResultSet.mortgageYear;
-        this.MortgageDue =ShipDataResultSet.mortgageDue;
-        this.BuyBrokerAttempts =ShipDataResultSet.buyBrokerAttempts;
-        this.SellBrokerAttempts =ShipDataResultSet.sellBrokerAttempts;
-        this.PreparingForDeparture =ShipDataResultSet.preparingForDeparture;
-        this.LowBerths =ShipDataResultSet.lowBerths;
-        this.LowPassengers =ShipDataResultSet.lowPassengers;
-        this.Basic =ShipDataResultSet.basic;
-        this.BasicPassengers =ShipDataResultSet.basicPassengers;
-        this.Middle =ShipDataResultSet.middle;
-        this.MiddlePassengers =ShipDataResultSet.middlePassengers;
-        this.High =ShipDataResultSet.high;
-        this.HighPassengers =ShipDataResultSet.highPassengers;
-        this.Luxury =ShipDataResultSet.luxury;
-        this.LuxuryPassengers =ShipDataResultSet.luxuryPassengers;
-        this.DeclaredDestination =ShipDataResultSet.declaredDestination;
-        this.DeclaredDestinationSector =ShipDataResultSet.declaredDestinationSector;
-        this.DeclaredDestinationSystem =ShipDataResultSet.declaredDestinationSystem;
+        this.ShipName =ShipDataResultSet.ShipName;
+        this.HullSize =ShipDataResultSet.HullSize;
+        this.JDrive =ShipDataResultSet.JDrive;
+        this.FuelCapacity =ShipDataResultSet.FuelCapacity;
+        this.FuelOnboard =ShipDataResultSet.FuelOnboard;
+        this.RefinedFuel =ShipDataResultSet.RefinedFuel;
+        this.ShipsBank =ShipDataResultSet.ShipsBank;
+        this.Day =ShipDataResultSet.Day;
+        this.Year =ShipDataResultSet.Year;
+        this.Time =ShipDataResultSet.Time;
+        this.CargoSpace =ShipDataResultSet.CargoSpace;
+        this.CargoSpaceFilled =ShipDataResultSet.CargoSpaceFilled;
+        this.System =ShipDataResultSet.System;
+        this.SystemUWP =ShipDataResultSet.SystemUWP;
+        this.CrewStandardOfLiving =ShipDataResultSet.CrewStandardOfLiving;
+        this.PassengersStandardOfLiving =ShipDataResultSet.PassengersStandardOfLiving;
+        this.MaintenanceDay =ShipDataResultSet.MaintenanceDay;
+        this.MaintenanceYear =ShipDataResultSet.MaintenanceYear;
+        this.MaintenanceDue =ShipDataResultSet.MaintenanceDue;
+        this.Mortgage =ShipDataResultSet.Mortgage;
+        this.Payments =ShipDataResultSet.Payments;
+        this.MortgageDay =ShipDataResultSet.MortgageDay;
+        this.MortgageYear =ShipDataResultSet.MortgageYear;
+        this.MortgageDue =ShipDataResultSet.MortgageDue;
+        this.BuyBrokerAttempts =ShipDataResultSet.BuyBrokerAttempts;
+        this.SellBrokerAttempts =ShipDataResultSet.SellBrokerAttempts;
+        this.PreparingForDeparture =ShipDataResultSet.PreparingForDeparture;
+        this.LowBerths =ShipDataResultSet.LowBerths;
+        this.LowPassengers =ShipDataResultSet.LowPassengers;
+        this.Basic =ShipDataResultSet.Basic;
+        this.BasicPassengers =ShipDataResultSet.BasicPassengers;
+        this.Middle =ShipDataResultSet.Middle;
+        this.MiddlePassengers =ShipDataResultSet.MiddlePassengers;
+        this.High =ShipDataResultSet.High;
+        this.HighPassengers =ShipDataResultSet.HighPassengers;
+        this.Luxury =ShipDataResultSet.Luxury;
+        this.LuxuryPassengers =ShipDataResultSet.LuxuryPassengers;
+        this.DeclaredDestination =ShipDataResultSet.DeclaredDestination;
+        this.DeclaredDestinationSector =ShipDataResultSet.DeclaredDestinationSector;
+        this.DeclaredDestinationSystem =ShipDataResultSet.DeclaredDestinationSystem;
 
     }
 }
@@ -53,7 +56,7 @@ async function getMyAPIData()
 {
     try
     {
-        const resp = await fetch("https://localhost:7181/api/ShipData/1/1", {method:"GET"})
+        const resp = await fetch("https://localhost:7181/api/ShipData/" + LocalGameID + "/1", {method:"GET"})
 
         if (!resp.ok)
         {
@@ -62,7 +65,7 @@ async function getMyAPIData()
 
         const respObject = await resp.json()
 
-        const ShipStatusData = new Ship(respObject.data[0]);
+        const ShipStatusData = new Ship(respObject.Data[0]);
 
         return ShipStatusData;
     }
@@ -102,5 +105,15 @@ async function getMyAPIData()
         {
             document.getElementById("ShipsMortgage").innerHTML ="The ship has no mortgage.";
         }
+        document.getElementById("PaymentsMade").innerHTML =ShipData.Payments +" of 520";
+        document.getElementById("PaymentAmount").innerHTML =ShipData.Mortgage +"Cr";
+        document.getElementById("HullSize").innerHTML =ShipData.HullSize +" dTons";
+        document.getElementById("JDrive").innerHTML ="J-" + ShipData.JDrive ;
+
+        document.getElementById("LowBerth").innerHTML =ShipData.LowPassengers + " of " + ShipData.LowBerths;
+        document.getElementById("BasicPassage").innerHTML =ShipData.BasicPassengers + " of " + ShipData.Basic;
+        document.getElementById("MiddlePassage").innerHTML =ShipData.MiddlePassengers + " of " + ShipData.Middle;
+        document.getElementById("HighPassage").innerHTML =ShipData.HighPassengers + " of " + ShipData.High;
+        document.getElementById("LuxuryPassage").innerHTML =ShipData.LuxuryPassengers + " of " + ShipData.Luxury;
     }
 })();

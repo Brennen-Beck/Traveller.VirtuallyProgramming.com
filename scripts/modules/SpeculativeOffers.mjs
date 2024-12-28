@@ -1,20 +1,23 @@
+import { LocalGameID } from "./Globals.mjs";
+
+
 class SpeculativeOffer
 {
     constructor(SpeculativeOfferRow)
     {
-        this.OfferId =SpeculativeOfferRow.offerId;
-        this.TradeGood =SpeculativeOfferRow.tradeGood;
-        this.BasePrice =SpeculativeOfferRow.basePrice; 
+        this.OfferId =SpeculativeOfferRow.OfferId;
+        this.TradeGood =SpeculativeOfferRow.TradeGood;
+        this.BasePrice =SpeculativeOfferRow.BasePrice; 
         this.dTonsAvailable =SpeculativeOfferRow.dTonsAvailable;
-        this.Price =SpeculativeOfferRow.price;
-        this.Percent =SpeculativeOfferRow.percent;
-        this.StarSystem =SpeculativeOfferRow.starSystem;
-        this.UWP =SpeculativeOfferRow.uwp;
-        this.Day =SpeculativeOfferRow.day;
-        this.Year =SpeculativeOfferRow.year;
-        this.Time =SpeculativeOfferRow.time;
-        this.OfferType =SpeculativeOfferRow.offerType;
-        this.Attempt =SpeculativeOfferRow.attempt;
+        this.Price =SpeculativeOfferRow.Price;
+        this.Percent =SpeculativeOfferRow.Percent;
+        this.StarSystem =SpeculativeOfferRow.StarSystem;
+        this.UWP =SpeculativeOfferRow.UWP;
+        this.Day =SpeculativeOfferRow.Day;
+        this.Year =SpeculativeOfferRow.Year;
+        this.Time =SpeculativeOfferRow.Time;
+        this.OfferType =SpeculativeOfferRow.OfferType;
+        this.Attempt =SpeculativeOfferRow.Attempt;
     }
 }
 
@@ -23,7 +26,7 @@ async function getSpeculativeOfferData()
 {
     try
     {
-        const resp = await fetch("https://localhost:7181/api/SpeculativeOffers/1/1", {method:"GET"})
+        const resp = await fetch("https://localhost:7181/api/SpeculativeOffers/" + LocalGameID + "/1", {method:"GET"})
 
         if (!resp.ok)
         {
@@ -31,8 +34,9 @@ async function getSpeculativeOfferData()
         }
 
         const respObject = await resp.json()
+        console.log("Raw API Data:", respObject.Data);
 
-        const SpeculativeOffersDataArray =respObject.data.map(Offer => new SpeculativeOffer(Offer));
+        const SpeculativeOffersDataArray =respObject.Data.map(Offer => new SpeculativeOffer(Offer));
 
         return SpeculativeOffersDataArray;
     }

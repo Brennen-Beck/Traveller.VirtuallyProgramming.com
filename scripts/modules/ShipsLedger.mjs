@@ -1,17 +1,20 @@
+import {LocalGameID} from "./Globals.mjs";
+
+
 class ShipsLedgerEntry
 {
     constructor(ShipLedgerEntryRow)
     {
-        this.BankTransactionId =ShipLedgerEntryRow.bankTransactionId;
-        this.Day =ShipLedgerEntryRow.day;
-        this.Year =ShipLedgerEntryRow.year;
-        this.Time =ShipLedgerEntryRow.time;
-        this.Description =ShipLedgerEntryRow.description;
-        this.RunningTotal =ShipLedgerEntryRow.runningTotal;
-        this.Revenue =ShipLedgerEntryRow.revenue;
-        this.Expense =ShipLedgerEntryRow.expense;
-        this.StarSystem =ShipLedgerEntryRow.starSystem;
-        this.SystemUWP =ShipLedgerEntryRow.systemUWP;
+        this.BankTransactionId =ShipLedgerEntryRow.BankTransactionId;
+        this.Day =ShipLedgerEntryRow.Day;
+        this.Year =ShipLedgerEntryRow.Year;
+        this.Time =ShipLedgerEntryRow.Time;
+        this.Description =ShipLedgerEntryRow.Description;
+        this.RunningTotal =ShipLedgerEntryRow.RunningTotal;
+        this.Revenue =ShipLedgerEntryRow.Revenue;
+        this.Expense =ShipLedgerEntryRow.Expense;
+        this.StarSystem =ShipLedgerEntryRow.StarSystem;
+        this.SystemUWP =ShipLedgerEntryRow.SystemUWP;
     }
 }
 
@@ -21,7 +24,7 @@ async function getShipLedgerAPIData()
 {
     try
     {
-        const resp = await fetch("https://localhost:7181/api/ShipsLedger/1/1", {method:"GET"})
+        const resp = await fetch("https://localhost:7181/api/ShipsLedger/" + LocalGameID + "/1", {method:"GET"})
 
         if (!resp.ok)
         {
@@ -30,7 +33,7 @@ async function getShipLedgerAPIData()
 
         const respObject = await resp.json()
 
-        const ShipLedgerDataArray =respObject.data.map(Ledger => new ShipsLedgerEntry(Ledger));
+        const ShipLedgerDataArray =respObject.Data.map(Ledger => new ShipsLedgerEntry(Ledger));
 
         return ShipLedgerDataArray;
     }
@@ -75,7 +78,7 @@ function DisplayLedgerTable(LedgerArray)
         Caption.innerHTML ="Ship's Ledger";
         Caption.style.textAlign = "left";
         
-
+        const TableHeader =document.createElement("thead");
         const HeaderRow = document.createElement("tr");
         
         const Headers = ["ID", "Day", "Year", "Time", "Description", "Running Total", "Revenue", "Expense", "Star System", "System UWP"];
@@ -98,13 +101,14 @@ function DisplayLedgerTable(LedgerArray)
             }
             HeaderRow.appendChild(th);
         });
-        Table.appendChild(HeaderRow);
+        TableHeader.appendChild(HeaderRow);
+        Table.appendChild(TableHeader);
 
         const ScrollableContainer = document.createElement("div");
         ScrollableContainer.className = "CustomTableContainer";
 
 
-        //Add data rows.
+        //Add Data rows.
         LedgerArray.forEach(Item =>
         {
             const Row =document.createElement("tr");

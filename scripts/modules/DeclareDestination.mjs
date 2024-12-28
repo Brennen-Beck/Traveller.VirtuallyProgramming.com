@@ -1,7 +1,10 @@
+import {LocalGameID} from "./Globals.mjs";
+
+
 function DeclareDestination(event, form)
 {
     event.preventDefault();     // Prevent the form from submitting and causing a page reload
-    const URL ="https://localhost:7181/api/DeclareDestination/1/1/";
+    const URL ="https://localhost:7181/api/DeclareDestination/"+ LocalGameID +"/1/";
     const FullURL = URL + form.SectorID.value + "/" + form.SystemID.value;
 
 
@@ -39,9 +42,9 @@ function DeclareDestination(event, form)
                     // Handle other status codes that return a body
                     return response.text();
                 })
-                .then(data => {
-                    if (data) {
-                        console.log("Response Data:", data);
+                .then(Data => {
+                    if (Data) {
+                        console.log("Response Data:", Data);
                     }
                 })
                 .catch(error => 
@@ -117,10 +120,10 @@ function fetchSystems(systemName) {
 
     fetch(URL)
         .then(response => response.json())
-        .then(data => {
-            // Check if the 'data' field exists and has results
-            if (data.data && data.data.length > 0) {
-                displaySystemResults(data.data); // Access the 'data' array
+        .then(Data => {
+            // Check if the 'Data' field exists and has results
+            if (Data.Data && Data.Data.length > 0) {
+                displaySystemResults(Data.Data); // Access the 'Data' array
             } else {
                 // Hide the dropdown if no results are found
                 document.getElementById("systemResults").style.display = "none";
