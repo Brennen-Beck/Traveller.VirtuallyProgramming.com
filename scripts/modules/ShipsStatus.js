@@ -96,7 +96,7 @@ async function getMyAPIData()
         document.getElementById("ShipsFuel").innerHTML =ShipData.FuelOnboard + " of " + ShipData.FuelCapacity + " " + ((ShipData.RefinedFuel === true) ? "Refined" : "Unrefined");        
         document.getElementById("CargoHold").innerHTML =ShipData.CargoSpaceFilled + " of " + ShipData.CargoSpace + " dTons Filled";        
         document.getElementById("ShipsBank").innerHTML =ShipData.ShipsBank.toLocaleString()+ "Cr";        
-        document.getElementById("LastMaintenance").innerHTML =ShipData.MaintenanceDay + ", " + ShipData.MaintenanceYear + "  (" + ((ShipData.MaintenanceDue <0) ? Math.abs(ShipData.MaintenanceDue) + " days ago" : "In " + ShipData.MaintenanceDue + "days") + ")";        
+        document.getElementById("LastMaintenance").innerHTML =ShipData.MaintenanceDay + ", " + ShipData.MaintenanceYear + "  (" + ((ShipData.MaintenanceDue <0) ? Math.abs(ShipData.MaintenanceDue) + " days ago" : "Due in " + ShipData.MaintenanceDue + "days") + ")";        
         if (ShipData.MortgageYear !== null)
         {
             document.getElementById("ShipsMortgage").innerHTML =ShipData.MortgageDay + ", " + ShipData.MortgageYear + "  (" + ((ShipData.MortgageDue <0) ? Math.abs(ShipData.MortgageDue) + " days ago" : "In " + ShipData.MortgageDue + "days") + ")";        
