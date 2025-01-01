@@ -89,44 +89,51 @@ async function getMyAPIData()
         console.log(ShipData)
         document.getElementById("ShipNameText").innerHTML =ShipData.ShipName;        
         document.getElementById("DepartureStatusText").innerHTML =((ShipData.PreparingForDeparture === true) ? "The ship is preparing for departure. (Buy Goods)" : "The ship is unprepared for departure. (Sell Goods)");        
-        document.getElementById("StarDate").innerHTML =ShipData.Day + ", " + ShipData.Year + " - " + ShipData.Time;  
-        document.getElementById("ShipsLocation").innerHTML =ShipData.System + " (" + ShipData.SystemUWP + ")";        
-        document.getElementById("DeclaredDestination").innerHTML =ShipData.DeclaredDestination;
-        document.getElementById("ShipsFuel").innerHTML =ShipData.FuelOnboard + " of " + ShipData.FuelCapacity + " " + ((ShipData.RefinedFuel === true) ? "Refined" : "Unrefined");        
-        document.getElementById("CargoHold").innerHTML =ShipData.CargoSpaceFilled + " of " + ShipData.CargoSpace + " dTons Filled";        
-        document.getElementById("ShipsBank").innerHTML =ShipData.ShipsBank.toLocaleString()+ "Cr";        
-        document.getElementById("LastMaintenance").innerHTML =ShipData.MaintenanceDay + ", " + ShipData.MaintenanceYear + "  (" + ((ShipData.MaintenanceDue <0) ? Math.abs(ShipData.MaintenanceDue) + " days ago" : "Due in " + ShipData.MaintenanceDue + " days") + ")";        
+
+        SetInputBoxData("Stardate", `${ShipData.Day}, ${ShipData.Year} - ${ShipData.Time}`);
+        SetInputBoxData("ShipsLocation", `${ShipData.System}, (${ShipData.SystemUWP})`);
+        SetInputBoxData("DeclaredDestination", `${ShipData.DeclaredDestination}`);
+
+        SetInputBoxData("ShipsFuel", `${ShipData.FuelOnboard} of ${ShipData.FuelCapacity} (${(ShipData.RefinedFuel === true) ? "Refined" : "Unrefined"})`);
+        SetInputBoxData("DeclaredDestination", `${ShipData.DeclaredDestination}`);
+        SetInputBoxData("CargoHold", `${ShipData.CargoSpaceFilled} of ${ShipData.CargoSpace} dTons Filled`);
+        
+        SetInputBoxData("ShipsBank", `${ShipData.ShipsBank.toLocaleString()}Cr`);
+        SetInputBoxData("LastMaintenance", `${ShipData.MaintenanceDay}, ${ShipData.MaintenanceYear}  (${ShipData.MaintenanceDue<0 ? Math.abs(ShipData.MaintenanceDue) + " days ago" : "Due in " + ShipData.MaintenanceDue + " days"})`);
         if (ShipData.MortgageYear !== null)
         {
-            document.getElementById("ShipsMortgage").innerHTML =ShipData.MortgageDay + ", " + ShipData.MortgageYear + "  (" + ((ShipData.MortgageDue <0) ? Math.abs(ShipData.MortgageDue) + " days ago" : "In " + ShipData.MortgageDue + "days") + ")";        
+            SetInputBoxData("ShipsMortgage",
+                `${ShipData.MortgageDay}, ${ShipData.MortgageYear}  (${(ShipData.MortgageDue <0 ? Math.abs(ShipData.MortgageDue) + " days ago" : "In " + ShipData.MortgageDue + "days")})`);
         }
         else
         {
-            document.getElementById("ShipsMortgage").innerHTML ="The ship has no mortgage.";
+            SetInputBoxData("ShipsMortgage", `The ship has no mortgage.`);
         }
-        document.getElementById("PaymentsMade").innerHTML =ShipData.Payments +" of 520";
-        document.getElementById("PaymentAmount").innerHTML =ShipData.Mortgage +"Cr";
-        document.getElementById("HullSize").innerHTML =ShipData.HullSize +" dTons";
-        document.getElementById("JDrive").innerHTML ="J-" + ShipData.JDrive ;
+        SetInputBoxData("PaymentsMade", `${ShipData.Payments} of 520`);
+        SetInputBoxData("PaymentAmount", `${ShipData.Mortgage}Cr`);
 
-        SetInputBoxData("traveller-text-field[label='LowBerth']", `${ShipData.LowPassengers} of ${ShipData.LowBerths}`);
-        SetInputBoxData("traveller-text-field[label='BasicPassage']", `${ShipData.BasicPassengers} of ${ShipData.Basic}`);
-        SetInputBoxData("traveller-text-field[label='MiddlePassage']", `${ShipData.MiddlePassengers} of ${ShipData.Middle}`);
-        SetInputBoxData("traveller-text-field[label='HighPassage']", `${ShipData.HighPassengers} of ${ShipData.High}`);
-        SetInputBoxData("traveller-text-field[label='LuxuryPassage']", `${ShipData.LuxuryPassengers} of ${ShipData.Luxury}`);
+        SetInputBoxData("HullSize", `${ShipData.HullSize} dTons`);
+        SetInputBoxData("JDrive", `J-${ShipData.JDrive}`);
+
+        SetInputBoxData("LowBerth", `${ShipData.LowPassengers} of ${ShipData.LowBerths}`);
+        SetInputBoxData("BasicPassage", `${ShipData.BasicPassengers} of ${ShipData.Basic}`);
+        SetInputBoxData("MiddlePassage", `${ShipData.MiddlePassengers} of ${ShipData.Middle}`);
+        SetInputBoxData("HighPassage", `${ShipData.HighPassengers} of ${ShipData.High}`);
+        SetInputBoxData("LuxuryPassage", `${ShipData.LuxuryPassengers} of ${ShipData.Luxury}`);
     }
 
 
-    function SetInputBoxData(Label, Value)
+    function SetInputBoxData(Selector, Value)
     {
-        const Field=document.querySelector(Label);
-        if (Field)
+        const InputBoxComponent=document.querySelector(`traveller-text-field[selector='${Selector}']`);
+
+        if (InputBoxComponent)
         {
-            Field.setAttribute('value', Value);
+            InputBoxComponent.setAttribute('value', Value);
         }
         else
         {
-            console.error(`Element with label '${Label}' not found.`);
+            console.error(`Element with selector '${Selector}' not found.`);
         }
     }
 

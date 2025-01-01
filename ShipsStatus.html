@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="./css/MainStyleSheet.css">
     <link rel="stylesheet" href="./css/Menu.css">
 	<link rel="stylesheet" href="./css/ShipStatus.css">
-	<link rel="stylesheet" href="./css/components/InputBox.css">
+	<!-- <link rel="stylesheet" href="./css/components/InputBox.css"> -->
     <title>BBeck's Traveller Site - Ship Status</title> 
 	<script src="./components/InputBox.js" type="module"></script>
 </head>
@@ -15,26 +15,6 @@
         <div id="HeaderContent"></div>
         <script src="scripts/Menu.js"></script>	
     </header>
-
-	<!--First row
-	<section class="textandpicture">
-		<div class="picturetextarea">
-			<h2 id="ShipName">
-			Loading...
-			</h2>
-			<br>
-			<p id="StarDate"></p>
-			<p id="ShipsLocation"></p>
-			<p id="ShipsBank"></p>
-			<p id="ShipsFuel"></p>
-			<p id="PrepForDeparture"></p>
-			<p id="DeclaredDestination"></p>
-		</div>
-		<div class="picturebox">
-			<img src="./images/Starship.jpg" alt="Starship Concept Art" height="480">		
-		</div>
-	</section>
-	-->
 
 	<section class="DisplayPageFrame">
 		<div class="DataHeader">
@@ -49,210 +29,35 @@
 
 		<div class="ShipData">
 			<div class="ShipStatusFrame">
-
-				<div class="InputBox">
-					<div class="InputBoxLabel">
-						<div class="InputBoxLabelText">Stardate</div>
-					</div>
-					<div class="InputBoxTextBox">
-						<div class="InputBoxTextBoxField">
-							<div class="InputBoxTextBoxText" id="StarDate">Text Entered</div>
-						</div>
-					</div>
-				</div>
-
-				<div class="InputBox">
-					<div class="InputBoxLabel">
-						<div class="InputBoxLabelText">Location</div>
-					</div>
-					<div class="InputBoxTextBox">
-						<div class="InputBoxTextBoxField">
-							<div class="InputBoxTextBoxText" id="ShipsLocation">Text Entered</div>
-						</div>
-					</div>
-				</div>
-
-				<div class="InputBox">
-					<div class="InputBoxLabel">
-						<div class="InputBoxLabelText">Declared Destination</div>
-					</div>
-					<div class="InputBoxTextBox">
-						<div class="InputBoxTextBoxField">
-							<div class="InputBoxTextBoxText" id="DeclaredDestination">Text Entered</div>
-						</div>
-					</div>
-				</div>
-
-				<div class="InputBox">
-					<div class="InputBoxLabel">
-						<div class="InputBoxLabelText">dTons of Fuel</div>
-					</div>
-					<div class="InputBoxTextBox">
-						<div class="InputBoxTextBoxField">
-							<div class="InputBoxTextBoxText" id="ShipsFuel">Text Entered</div>
-						</div>
-					</div>
-				</div>
-
-				<div class="InputBox">
-					<div class="InputBoxLabel">
-						<div class="InputBoxLabelText">Cargo Hold</div>
-					</div>
-					<div class="InputBoxTextBox">
-						<div class="InputBoxTextBoxField">
-							<div class="InputBoxTextBoxText" id="CargoHold">Text Entered</div>
-						</div>
-					</div>
-				</div>
+				<traveller-text-field selector="Stardate" label="Stardate" value="Undefined Text"></traveller-text-field>
+				<traveller-text-field selector="ShipsLocation" label="Ship's Location" value="Undefined Text"></traveller-text-field>
+				<traveller-text-field selector="DeclaredDestination" label="Declared Destination" value="Undefined Text"></traveller-text-field>
+				<traveller-text-field selector="ShipsFuel" label="Fuel Onboard" value="Undefined Text"></traveller-text-field>
+				<traveller-text-field selector="CargoHold" label="Cargo Hold" value="Undefined Text"></traveller-text-field>
 			</div>
 
 			<div class="ShipFinanceFrame">
-				<div class="InputBox">
-					<div class="InputBoxLabel">
-						<div class="InputBoxLabelText">Ship's Bank</div>
-					</div>
-					<div class="InputBoxTextBox">
-						<div class="InputBoxTextBoxField">
-							<div class="InputBoxTextBoxText" id="ShipsBank">Text Entered</div>
-						</div>
-					</div>
-				</div>
-
-				<div class="InputBox">
-					<div class="InputBoxLabel">
-						<div class="InputBoxLabelText">Last Maintenance</div>
-					</div>
-					<div class="InputBoxTextBox">
-						<div class="InputBoxTextBoxField">
-							<div class="InputBoxTextBoxText" id="LastMaintenance">Text Entered</div>
-						</div>
-					</div>
-				</div>
-
-				<div class="InputBox">
-					<div class="InputBoxLabel">
-						<div class="InputBoxLabelText">Ship's Mortgage</div>
-					</div>
-					<div class="InputBoxTextBox">
-						<div class="InputBoxTextBoxField">
-							<div class="InputBoxTextBoxText" id="ShipsMortgage">Text Entered</div>
-						</div>
-					</div>
-				</div>
-
-				<div class="InputBox">
-					<div class="InputBoxLabel">
-						<div class="InputBoxLabelText">Payments Made</div>
-					</div>
-					<div class="InputBoxTextBox">
-						<div class="InputBoxTextBoxField">
-							<div class="InputBoxTextBoxText" id="PaymentsMade">Text Entered</div>
-						</div>
-					</div>
-				</div>
-
-				<div class="InputBox">
-					<div class="InputBoxLabel">
-						<div class="InputBoxLabelText">Payment Amount</div>
-					</div>
-					<div class="InputBoxTextBox">
-						<div class="InputBoxTextBoxField">
-							<div class="InputBoxTextBoxText" id="PaymentAmount">Text Entered</div>
-						</div>
-					</div>
-				</div>
+				<traveller-text-field selector="ShipsBank" label="Ship's Bank" value="Undefined Text"></traveller-text-field>
+				<traveller-text-field selector="LastMaintenance" label="Last Maintenance" value="Undefined Text"></traveller-text-field>
+				<traveller-text-field selector="ShipsMortgage" label="Ship's Mortgage" value="Undefined Text"></traveller-text-field>
+				<traveller-text-field selector="PaymentsMade" label="Payments Made" value="Undefined Text"></traveller-text-field>
+				<traveller-text-field selector="PaymentAmount" label="Payment Amount" value="Undefined Text"></traveller-text-field>
 			</div>
 
 			<div class="ShipPropertiesFrame">
-				<div class="InputBox">
-					<div class="InputBoxLabel">
-						<div class="InputBoxLabelText">Hull Size</div>
-					</div>
-					<div class="InputBoxTextBox">
-						<div class="InputBoxTextBoxField">
-							<div class="InputBoxTextBoxText" id="HullSize">Text Entered</div>
-						</div>
-					</div>
-				</div>
-
-				<div class="InputBox">
-					<div class="InputBoxLabel">
-						<div class="InputBoxLabelText">J-Drive</div>
-					</div>
-					<div class="InputBoxTextBox">
-						<div class="InputBoxTextBoxField">
-							<div class="InputBoxTextBoxText" id="JDrive">Text Entered</div>
-						</div>
-					</div>
-				</div>
+				<traveller-text-field selector="HullSize" label="Hull Size" value="Undefined Text"></traveller-text-field>
+				<traveller-text-field selector="JDrive" label="J-Drive" value="Undefined Text"></traveller-text-field>
 			</div>
 
 			<div class="PassengerStatusFrame">
 				<div class="PassengerStatusFrameTitle">
 					Passengers
 				</div>
-
-				<traveller-text-field label="LowBerth" value="Undefined Text"></traveller-text-field>
-				<traveller-text-field label="BasicPassage" value="Undefined Text"></traveller-text-field>
-				<traveller-text-field label="MiddlePassage" value="Undefined Text"></traveller-text-field>
-				<traveller-text-field label="HighPassage" value="Undefined Text"></traveller-text-field>
-				<traveller-text-field label="LuxuryPassage" value="Undefined Text"></traveller-text-field>
-				<!--
-				<div class="InputBox">
-					<div class="InputBoxLabel">
-						<div class="InputBoxLabelText">Low Berth</div>
-					</div>
-					<div class="InputBoxTextBox">
-						<div class="InputBoxTextBoxField">
-							<div class="InputBoxTextBoxText" id="LowBerth">Text Entered</div>
-						</div>
-					</div>
-				</div>
-				<div class="InputBox">
-					<div class="InputBoxLabel">
-						<div class="InputBoxLabelText">Basic Passage</div>
-					</div>
-					<div class="InputBoxTextBox">
-						<div class="InputBoxTextBoxField">
-							<div class="InputBoxTextBoxText" id="BasicPassage">Text Entered</div>
-						</div>
-					</div>
-				</div>
-				
-				<div class="InputBox">
-					<div class="InputBoxLabel">
-						<div class="InputBoxLabelText">Middle Passage</div>
-					</div>
-					<div class="InputBoxTextBox">
-						<div class="InputBoxTextBoxField">
-							<div class="InputBoxTextBoxText" id="MiddlePassage">Text Entered</div>
-						</div>
-					</div>
-				</div>
-				
-				<div class="InputBox">
-					<div class="InputBoxLabel">
-						<div class="InputBoxLabelText">High Passage</div>
-					</div>
-					<div class="InputBoxTextBox">
-						<div class="InputBoxTextBoxField">
-							<div class="InputBoxTextBoxText" id="HighPassage">Text Entered</div>
-						</div>
-					</div>
-				</div>
-				
-				<div class="InputBox">
-					<div class="InputBoxLabel">
-						<div class="InputBoxLabelText">Luxury Passage</div>
-					</div>
-					<div class="InputBoxTextBox">
-						<div class="InputBoxTextBoxField">
-							<div class="InputBoxTextBoxText" id="LuxuryPassage">Text Entered</div>
-						</div>
-					</div>
-				</div>
-
-				-->
+				<traveller-text-field selector="LowBerth" label="Low Berth" value="Undefined Text"></traveller-text-field>
+				<traveller-text-field selector="BasicPassage" label="Basic Passage" value="Undefined Text"></traveller-text-field>
+				<traveller-text-field selector="MiddlePassage" label="Middle Passage" value="Undefined Text"></traveller-text-field>
+				<traveller-text-field selector="HighPassage" label="High Passage" value="Undefined Text"></traveller-text-field>
+				<traveller-text-field selector="LuxuryPassage" label="Luxury Passage" value="Undefined Text"></traveller-text-field>
 			</div>
 
 		</div>

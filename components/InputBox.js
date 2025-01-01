@@ -10,16 +10,76 @@ class TravellerTextField extends HTMLElement
         const TextBoxDiv =document.createElement('div');
         const TextBoxField =document.createElement('div');
         const TextBoxText =document.createElement('div');
-        const Style = document.createElement('link');
+        const Style = document.createElement('style');
 
 
         this.InternalLabelDiv =LabelDiv;
         this.InternalTextContent =TextBoxDiv;
 
-        // Add external CSS
-        Style.rel = 'stylesheet';
-        Style.href = './css/components/InputBox.css'; // Adjust path if necessary
-        ShadowRoot.appendChild(Style);
+        // Load external CSS as a string
+        Style.textContent = `
+            :host {
+                display: block;
+                width: 100%;
+                height: auto;
+            }
+            .InputBox {
+                width: 100%; 
+                height: 100%; 
+                justify-content: flex-start; 
+                align-items: center; 
+                display: inline-flex;
+            }
+            .InputBoxLabel {
+                height: 40px;
+                width: 100%; 
+                padding-top: 0px;
+                padding-left: 10px; 
+                padding-right: 10px; 
+                justify-content: flex-end; 
+                align-items: center; 
+                vertical-align: middle;
+                gap: 10px; 
+                display: flex
+            }
+            .InputBoxLabelText {
+                text-align: right;
+                color: #EDE781;
+                font-size: 16px;
+                font-family: Roboto;
+                font-weight: 500;
+                word-wrap: break-word;
+            }
+            .InputBoxTextBox {
+                width: 100%;
+                height: 36px;
+                padding: 4px;
+                background: #FFFEEB;
+                border-radius: 5px;
+                border: 1px #EDE781 solid;
+                justify-content: flex-start;
+                align-items: center;
+                gap: 4px;
+                display: flex;
+            }
+            .InputBoxTextBoxField {
+                height: 19px;
+                justify-content: center;
+                align-items: center;
+                gap: 10px;
+                display: flex;
+            }
+            .InputBoxTextBoxText {
+                flex: 1 1 0;
+                height: 19px;
+                color: #7C4C00;
+                font-size: 16px;
+                font-family: Roboto;
+                font-weight: 500;
+                word-wrap: break-word;
+            }
+        `;
+
 
         Container.className ='InputBox';
         LabelDiv.className ='InputBoxLabel';
@@ -41,29 +101,14 @@ class TravellerTextField extends HTMLElement
         Container.appendChild(LabelDiv);
         Container.appendChild(TextBoxDiv);
 
+        ShadowRoot.appendChild(Style);
         ShadowRoot.appendChild(Container);
-
-        /*
-        Style.onload = () => {
-            const computedStyle = window.getComputedStyle(Container);
-        
-            // Syncing padding, margin, and font properties
-            Container.style.padding = computedStyle.padding;
-            Container.style.margin = computedStyle.margin;
-            Container.style.fontSize = computedStyle.fontSize;
-            Container.style.boxSizing = computedStyle.boxSizing;
-        
-            // Explicitly set dimensions
-            Container.style.width = computedStyle.width;
-            Container.style.height = computedStyle.height;
-        };
-        */
     }
 
 
     static get observedAttributes() 
     {
-        return ['label', 'value'];
+        return ['selector', 'label', 'value'];
     }
 
 
@@ -87,7 +132,6 @@ class TravellerTextField extends HTMLElement
     {
         this.labelDiv.querySelector(".InputBoxLabelText").textContent = NewLabel;
     }
-
 }
 
 
