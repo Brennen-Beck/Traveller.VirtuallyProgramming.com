@@ -1,4 +1,5 @@
 import {LocalGameID} from "./Globals.mjs";
+import { TravellerAPIWebSiteURL } from "./Globals.mjs";
 
 
 class ShipsLedgerEntry
@@ -24,7 +25,7 @@ async function getShipLedgerAPIData()
 {
     try
     {
-        const resp = await fetch("https://localhost:7181/api/ShipsLedger/" + LocalGameID + "/1", {method:"GET"})
+        const resp = await fetch(TravellerAPIWebSiteURL + "/ShipsLedger/" + LocalGameID + "/1", {method:"GET"})
 
         if (!resp.ok)
         {

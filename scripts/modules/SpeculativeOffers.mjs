@@ -1,4 +1,5 @@
 import { LocalGameID } from "./Globals.mjs";
+import { TravellerAPIWebSiteURL } from "./Globals.mjs";
 
 
 class SpeculativeOffer
@@ -26,7 +27,7 @@ async function getSpeculativeOfferData()
 {
     try
     {
-        const resp = await fetch("https://localhost:7181/api/SpeculativeOffers/" + LocalGameID + "/1", {method:"GET"})
+        const resp = await fetch(TravellerAPIWebSiteURL + "/SpeculativeOffers/" + LocalGameID + "/1", {method:"GET"})
 
         if (!resp.ok)
         {

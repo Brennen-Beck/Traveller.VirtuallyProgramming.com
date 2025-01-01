@@ -1,5 +1,5 @@
-import { LocalGameID } from "./Globals.mjs";
-
+import { LocalGameID } from "./Globals.js";
+import { TravellerAPIWebSiteURL } from "./Globals.js";
 
 class Ship 
 {
@@ -56,7 +56,7 @@ async function getMyAPIData()
 {
     try
     {
-        const resp = await fetch("https://localhost:7181/api/ShipData/" + LocalGameID + "/1", {method:"GET"})
+        const resp = await fetch(TravellerAPIWebSiteURL+"/ShipData/" + LocalGameID + "/1", {method:"GET"})
 
         if (!resp.ok)
         {

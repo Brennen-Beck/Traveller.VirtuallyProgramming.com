@@ -1,4 +1,5 @@
 import { LocalGameID } from "./Globals.mjs";
+import { TravellerAPIWebSiteURL } from "./Globals.mjs";
 
 
 class CrewMember
@@ -25,7 +26,7 @@ async function getCrewMemberData()
 {
     try
     {
-        const resp = await fetch("https://localhost:7181/api/CrewData/" + LocalGameID + "/1", {method:"GET"})
+        const resp = await fetch(TravellerAPIWebSiteURL+"/CrewData/" + LocalGameID + "/1", {method:"GET"})
 
         if (!resp.ok)
         {
