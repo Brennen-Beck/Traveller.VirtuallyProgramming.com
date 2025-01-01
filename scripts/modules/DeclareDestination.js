@@ -1,5 +1,5 @@
-import {LocalGameID} from "./Globals.mjs";
-import { TravellerAPIWebSiteURL } from "./Globals.mjs";
+import {LocalGameID} from "./Globals.js";
+import { TravellerAPIWebSiteURL } from "./Globals.js";
 
 
 function DeclareDestination(event, form)
