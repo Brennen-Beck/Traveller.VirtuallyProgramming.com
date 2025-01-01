@@ -1,3 +1,12 @@
+traveller-text-field {
+   width: 100%; 
+   height: 100%; 
+   justify-content: flex-start; 
+   align-items: center; 
+   display: inline-flex;
+}
+
+
 .InputBox{
     width: 100%; 
     height: 100%; 

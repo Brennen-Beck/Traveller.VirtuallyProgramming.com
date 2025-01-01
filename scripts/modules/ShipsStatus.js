@@ -1,11 +1,11 @@
 import { LocalGameID } from "./Globals.js";
 import { TravellerAPIWebSiteURL } from "./Globals.js";
 
+
 class Ship 
 {
     constructor(ShipDataResultSet) //, HullSize, JDrive, FuelCapacity, FuelOnboard, RefinedFuel, ShipsBank, Day, Year, Time, CargoSpace,CargoSpaceFree, System, SystemUWP, CrewStandardOfLiving, PassengersStandardOfLiving, MaintenanceDay, MaintenanceYear, Mortgage, Payments, BuyBrokerAttempts, SellBrokerAttempts, LowBerths, LowPassengers, Basic, BasicPassengers, Middle, MiddlePassengers, High, HighPassengers, Luxury, LuxuryPassengers, PassengerDestination, PassengerDestinationSector, PassengerDestinationSystem)
     {
-        
         this.ShipName =ShipDataResultSet.ShipName;
         this.HullSize =ShipDataResultSet.HullSize;
         this.JDrive =ShipDataResultSet.JDrive;
@@ -46,7 +46,6 @@ class Ship
         this.DeclaredDestination =ShipDataResultSet.DeclaredDestination;
         this.DeclaredDestinationSector =ShipDataResultSet.DeclaredDestinationSector;
         this.DeclaredDestinationSystem =ShipDataResultSet.DeclaredDestinationSystem;
-
     }
 }
 
@@ -96,7 +95,7 @@ async function getMyAPIData()
         document.getElementById("ShipsFuel").innerHTML =ShipData.FuelOnboard + " of " + ShipData.FuelCapacity + " " + ((ShipData.RefinedFuel === true) ? "Refined" : "Unrefined");        
         document.getElementById("CargoHold").innerHTML =ShipData.CargoSpaceFilled + " of " + ShipData.CargoSpace + " dTons Filled";        
         document.getElementById("ShipsBank").innerHTML =ShipData.ShipsBank.toLocaleString()+ "Cr";        
-        document.getElementById("LastMaintenance").innerHTML =ShipData.MaintenanceDay + ", " + ShipData.MaintenanceYear + "  (" + ((ShipData.MaintenanceDue <0) ? Math.abs(ShipData.MaintenanceDue) + " days ago" : "Due in " + ShipData.MaintenanceDue + "days") + ")";        
+        document.getElementById("LastMaintenance").innerHTML =ShipData.MaintenanceDay + ", " + ShipData.MaintenanceYear + "  (" + ((ShipData.MaintenanceDue <0) ? Math.abs(ShipData.MaintenanceDue) + " days ago" : "Due in " + ShipData.MaintenanceDue + " days") + ")";        
         if (ShipData.MortgageYear !== null)
         {
             document.getElementById("ShipsMortgage").innerHTML =ShipData.MortgageDay + ", " + ShipData.MortgageYear + "  (" + ((ShipData.MortgageDue <0) ? Math.abs(ShipData.MortgageDue) + " days ago" : "In " + ShipData.MortgageDue + "days") + ")";        
@@ -110,10 +109,25 @@ async function getMyAPIData()
         document.getElementById("HullSize").innerHTML =ShipData.HullSize +" dTons";
         document.getElementById("JDrive").innerHTML ="J-" + ShipData.JDrive ;
 
-        document.getElementById("LowBerth").innerHTML =ShipData.LowPassengers + " of " + ShipData.LowBerths;
-        document.getElementById("BasicPassage").innerHTML =ShipData.BasicPassengers + " of " + ShipData.Basic;
-        document.getElementById("MiddlePassage").innerHTML =ShipData.MiddlePassengers + " of " + ShipData.Middle;
-        document.getElementById("HighPassage").innerHTML =ShipData.HighPassengers + " of " + ShipData.High;
-        document.getElementById("LuxuryPassage").innerHTML =ShipData.LuxuryPassengers + " of " + ShipData.Luxury;
+        SetInputBoxData("traveller-text-field[label='LowBerth']", `${ShipData.LowPassengers} of ${ShipData.LowBerths}`);
+        SetInputBoxData("traveller-text-field[label='BasicPassage']", `${ShipData.BasicPassengers} of ${ShipData.Basic}`);
+        SetInputBoxData("traveller-text-field[label='MiddlePassage']", `${ShipData.MiddlePassengers} of ${ShipData.Middle}`);
+        SetInputBoxData("traveller-text-field[label='HighPassage']", `${ShipData.HighPassengers} of ${ShipData.High}`);
+        SetInputBoxData("traveller-text-field[label='LuxuryPassage']", `${ShipData.LuxuryPassengers} of ${ShipData.Luxury}`);
     }
+
+
+    function SetInputBoxData(Label, Value)
+    {
+        const Field=document.querySelector(Label);
+        if (Field)
+        {
+            Field.setAttribute('value', Value);
+        }
+        else
+        {
+            console.error(`Element with label '${Label}' not found.`);
+        }
+    }
+
 })();
