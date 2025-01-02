@@ -1,7 +1,7 @@
 class TravellerFrame extends HTMLElement {
     constructor() {
         super();
-        const Shadow = this.attachShadow({ mode: 'closed' });
+        const Shadow = this.attachShadow({ mode: 'open' });
 
         // Create elements
         const Container = document.createElement('div');
@@ -24,7 +24,7 @@ class TravellerFrame extends HTMLElement {
                 width: 100%;
             }
             .FrameContainer {
-                width: 440px;
+                width: auto;
                 flex-direction: column;
                 justify-content: center;
                 align-items: flex-start;
@@ -33,14 +33,14 @@ class TravellerFrame extends HTMLElement {
             }
             .FrameTitle {
                 width: 100%;
-                text-align: left;
+                text-align: justify ;
                 color: #EDE781;
                 font-size: 16px;
                 font-family: Orbitron;
                 font-weight: 700;
                 word-wrap: break-word;
                 padding-bottom: 0.3rem;
-                padding-left: 5rem;
+                padding-left: 0rem;
             }
             .FieldsContainer {
                 width: 100%;

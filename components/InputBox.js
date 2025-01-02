@@ -3,7 +3,7 @@ class TravellerTextField extends HTMLElement
     constructor()
     {
         super();
-        const ShadowRoot = this.attachShadow({mode: 'closed'});
+        const ShadowRoot = this.attachShadow({mode: 'open'});
         const Container = document.createElement('div');
         const LabelDiv = document.createElement('div');
         const LabelText = document.createElement('div');
@@ -24,11 +24,10 @@ class TravellerTextField extends HTMLElement
                 height: auto;
             }
             .InputBox {
-                width: 100%; 
+                width: auto; 
                 height: 100%; 
-                justify-content: flex-start; 
                 align-items: center; 
-                display: inline-flex;
+                display: flex;
             }
             .InputBoxLabel {
                 height: 40px;
@@ -63,6 +62,7 @@ class TravellerTextField extends HTMLElement
                 display: flex;
             }
             .InputBoxTextBoxField {
+                width: 300px;    
                 height: 19px;
                 justify-content: center;
                 align-items: center;
