@@ -79,6 +79,7 @@ async function getMyAPIData()
 (async () => 
 {
     const ShipData = await getMyAPIData()
+    let TestFields =[];
 
     if (!ShipData)
     {
@@ -98,6 +99,23 @@ async function getMyAPIData()
         SetInputBoxData("DeclaredDestination", `${ShipData.DeclaredDestination}`);
         SetInputBoxData("CargoHold", `${ShipData.CargoSpaceFilled} of ${ShipData.CargoSpace} dTons Filled`);
         
+        TestFields = [
+            { selector: 'ShipsBank', label: "Ship's Bank", value: `${ShipData.ShipsBank.toLocaleString()}Cr`},
+            { selector: 'LastMaintenance', label: 'Last Maintenance', value: `${ShipData.MaintenanceDay}, ${ShipData.MaintenanceYear}  (${ShipData.MaintenanceDue<0 ? Math.abs(ShipData.MaintenanceDue) + " days ago" : "Due in " + ShipData.MaintenanceDue + " days"})`},
+        ];
+        if (ShipData.MortgageYear !== null)
+        {
+            TestFields.push({ selector: 'ShipsMortgage', label: "Ship's Bank", value: `${ShipData.MortgageDay}, ${ShipData.MortgageYear}  (${(ShipData.MortgageDue <0 ? Math.abs(ShipData.MortgageDue) + " days ago" : "In " + ShipData.MortgageDue + "days")})`});
+        }
+        else
+        {
+            TestFields.push({ selector: 'ShipsMortgage', label: "Ship's Mortgage", value: `The ship has no mortgage.`,});
+        }
+        TestFields.push({ selector: 'PaymentsMade', label: 'Payments Made', value: `${ShipData.Payments} of 520`});
+        TestFields.push({ selector: 'PaymentAmount', label: 'Payment Amount', value: `${ShipData.Mortgage}Cr`});
+        SetTravellerFrame("Finance", TestFields);
+
+
         SetInputBoxData("ShipsBank", `${ShipData.ShipsBank.toLocaleString()}Cr`);
         SetInputBoxData("LastMaintenance", `${ShipData.MaintenanceDay}, ${ShipData.MaintenanceYear}  (${ShipData.MaintenanceDue<0 ? Math.abs(ShipData.MaintenanceDue) + " days ago" : "Due in " + ShipData.MaintenanceDue + " days"})`);
         if (ShipData.MortgageYear !== null)
@@ -120,6 +138,36 @@ async function getMyAPIData()
         SetInputBoxData("MiddlePassage", `${ShipData.MiddlePassengers} of ${ShipData.Middle}`);
         SetInputBoxData("HighPassage", `${ShipData.HighPassengers} of ${ShipData.High}`);
         SetInputBoxData("LuxuryPassage", `${ShipData.LuxuryPassengers} of ${ShipData.Luxury}`);
+
+
+        TestFields = [
+            { selector: 'LowBerth', label: 'Low Berth', value: `${ShipData.LowPassengers} of ${ShipData.LowBerths}`},
+            { selector: 'BasicPassage', label: 'Basic Passage', value: `${ShipData.BasicPassengers} of ${ShipData.Basic}` },
+            { selector: 'MiddlePassage', label: 'Middle Passage', value: `${ShipData.MiddlePassengers} of ${ShipData.Middle}`},
+            { selector: 'HighPassage', label: 'High Passage', value: `${ShipData.HighPassengers} of ${ShipData.High}`},
+            { selector: 'LuxuryPassage', label: 'Luxury Passage', value: `${ShipData.LuxuryPassengers} of ${ShipData.Luxury}`},
+        ];
+        SetTravellerFrame("Passengers", TestFields);
+
+
+        
+
+    }
+
+
+
+    function SetTravellerFrame(Selector, Fields)
+    {
+        const Frame = document.querySelector(`traveller-frame[selector='${Selector}']`);
+
+        if(Frame)
+        {
+            Frame.Fields =Fields;
+        }
+        else
+        {
+            console.error(`Frame element with selector '${Selector}' not found.`);
+        }
     }
 
 

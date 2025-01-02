@@ -9,6 +9,7 @@
 	<!-- <link rel="stylesheet" href="./css/components/InputBox.css"> -->
     <title>BBeck's Traveller Site - Ship Status</title> 
 	<script src="./components/InputBox.js" type="module"></script>
+	<script src="./components/TravellerFrame.js" type="module"></script>
 </head>
 <body> 
     <header class="Nav">
@@ -36,6 +37,10 @@
 				<traveller-text-field selector="CargoHold" label="Cargo Hold" value="Undefined Text"></traveller-text-field>
 			</div>
 
+			<div class="FinanceFrame">
+				<traveller-frame selector="Finance" title="Finance"></traveller-frame>
+			</div>
+
 			<div class="ShipFinanceFrame">
 				<traveller-text-field selector="ShipsBank" label="Ship's Bank" value="Undefined Text"></traveller-text-field>
 				<traveller-text-field selector="LastMaintenance" label="Last Maintenance" value="Undefined Text"></traveller-text-field>
@@ -60,6 +65,9 @@
 				<traveller-text-field selector="LuxuryPassage" label="Luxury Passage" value="Undefined Text"></traveller-text-field>
 			</div>
 
+			<div class="PassengerStatusFrame">
+				<traveller-frame selector="Passengers" title="Passengers"></traveller-frame>
+			</div>
 		</div>
 	</section>
 
