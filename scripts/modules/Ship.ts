@@ -21,12 +21,12 @@ const ShipDataSchema = z.object({
     PassengersStandardOfLiving: z.number().int().nullable(),
     MaintenanceDay: z.number().int().nullable(),
     MaintenanceYear: z.number().int().nullable(),
-    MaintenanceDue: z.boolean().nullable(),
+    MaintenanceDue: z.number().nullable(),
     Mortgage: z.number().int().nullable(),
     Payments: z.number().int().nullable(),
     MortgageYear: z.number().int().nullable(),
     MortgageDay: z.number().int().nullable(),
-    MortgageDue: z.boolean().nullable(),
+    MortgageDue: z.number().nullable(),
     BuyBrokerAttempts: z.number().int().nullable(),
     SellBrokerAttempts: z.number().int().nullable(),
     PreparingForDeparture: z.boolean(),
@@ -65,12 +65,12 @@ export class Ship {
     PassengersStandardOfLiving: number | null;
     MaintenanceDay: number | null;
     MaintenanceYear: number | null;
-    MaintenanceDue: boolean | null;
+    MaintenanceDue: number | null;
     Mortgage: number | null;
     Payments: number | null;
     MortgageYear: number | null;
     MortgageDay: number | null;
-    MortgageDue: boolean | null;
+    MortgageDue: number | null;
     BuyBrokerAttempts: number | null;
     SellBrokerAttempts: number | null;
     PreparingForDeparture: boolean;

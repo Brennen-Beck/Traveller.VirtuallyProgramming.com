@@ -112,7 +112,7 @@
   "include": [
     "./**/*.ts",
     "./**/*.tsx"
-, "scripts/modules/ShipsStatus.js"  ],
+, "scripts/modules/ShipsStatus.ts"  ],
   "exclude": [
     "node_modules",
     "dist"
