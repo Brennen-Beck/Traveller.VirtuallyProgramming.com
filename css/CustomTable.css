@@ -49,12 +49,19 @@
     color: #ede781;
 }
 
+
 /* Styling for table cells */
 .CustomTable td {
     padding: 8px; /* Add padding for readability */
     border: none; /* Remove cell borders */
     font-size: 0.92rem;
+    
 }
+
+.CustomTable td img {
+    width: 160px;
+}
+
 
 /* Add zebra-striping to rows for readability */
 .CustomTable tr:nth-child(even) {

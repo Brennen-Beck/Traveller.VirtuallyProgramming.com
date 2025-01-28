@@ -4,10 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./css/MainStyleSheet.css">
-    <link rel="stylesheet" href="./css/LandingPage.css">
     <link rel="stylesheet" href="./css/Menu.css">
-	<link rel="stylesheet" href="./css/CustomTable.css">
-    <title>BBeck's Traveller Site - Ship's Ledger</title> 
+	<link rel="stylesheet" href="./css/CrewRoster.css">
+    <link rel="stylesheet" href="./css/CustomTable.css">
+
+    <title>BBeck's Traveller Site - Crew Roster</title> 
 </head>
 <body> 
     <header class="Nav">
@@ -15,12 +16,12 @@
         <script src="scripts/Menu.js"></script>	
     </header>
 
-    <!--Main Area-->
-    <section class="textandpicture">
-        <h2 id="SpeculativeOfferData">Speculative Offers</h2>
+    <article>
+        <section class="DisplayPageFrame">
+            <div id="CrewMemberData"></div>
+        </section>
+    </article>
 
-    </section>
-    <script type="module" src="scripts/modules/SpeculativeOffers.js"></script>	
-    
+	<script src="./scripts/modules/CrewRoster.js"  type="module"></script>		
 </body> 
 </html>

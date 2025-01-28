@@ -178,7 +178,7 @@ header{
 
 
 @media (max-width: 1100px){
-    .HeaderContent{
+    #HeaderContent{
         flex-direction: column;
         max-width: 1000px;
         margin: 0px auto;
@@ -200,6 +200,14 @@ header{
 }
 
 @media (max-width: 540px){
+    header{
+        position: relative;
+        background: #040123;
+        width: 100%;
+        z-index: 1000;
+        max-width: 400px;
+    }
+    
     .Logo{
 
     }
@@ -209,7 +217,7 @@ header{
         width: auto; /* Maintain the aspect ratio */
     }
 
-    .HeaderContent{
+    #HeaderContent{
         flex-direction: column;
         row-gap: 0.2rem;
         padding: 0.8rem 0px;
@@ -252,4 +260,102 @@ header{
         left: 0px;
         right: initial;
     }
+}
+
+
+@media (max-width: 400px){
+    * {
+        margin: 0px;
+        padding: 0px;
+        box-sizing: border-box;
+    }
+    
+    a {
+        text-decoration: none;
+        color: inherit;
+    }
+    
+    header{
+        position: initial;
+        background: #040123;
+        width: 100%;
+        z-index: 1000;
+        max-width: 400px;
+    }
+    
+    .Logo{
+        padding: 0px;
+        margin: 0px;
+        display: block;
+    }
+
+    .LogoImage{
+        height: 2.6rem; /* Adjust the height to shrink the logo */
+        width: auto; /* Maintain the aspect ratio */
+        margin: 0px;
+        padding: 10px;
+        display: block;
+    }
+
+    .DataHeader{
+        flex-direction: column;
+        gap: 0px;
+        padding-bottom: 20px;
+    }
+
+    .DisplayPageFrame{
+        flex-direction: column;
+    }
+
+    #HeaderContent{
+        display:block ;
+        flex-direction: column;
+        align-items: start ;
+        justify-content: left;
+        row-gap: 0.2rem;
+        padding: 0rem 0px;
+        margin: 0;
+    }
+
+    .NavigationBar{
+        width: auto;
+        justify-content: center;
+        flex-direction: column;
+        display: flex;
+        flex-wrap: wrap;
+        padding: 0rem;
+        margin: 0;
+    }
+
+    .NavigationItem{
+        padding-top: 0.2rem;
+        padding-bottom: 0.3rem;
+    }
+    .NavigationList{
+        flex-direction: column;
+    }
+
+
+    .DropDown{
+        position: initial;
+    }
+
+    .DropDown:hover .DropDownList{
+        display: block;
+        border-radius: 0rem;
+    }
+
+    .DropDownList, .SubMenuListLeft, .SubMenuListRight{
+         padding: 0px;
+        margin: 0px;
+        left: 0px;
+        min-width: none;
+    }
+    .SubMenuListRight, .SubMenuListLeft{
+        width: 100%;
+        top: 100%;
+        left: 0px;
+        right: initial;
+    }
+
 }

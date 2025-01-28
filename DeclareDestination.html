@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./css/MainStyleSheet.css">
-    <link rel="stylesheet" href="./css/LandingPage.css">
     <link rel="stylesheet" href="./css/Menu.css">
 	<link rel="stylesheet" href="./css/DeclareDestination.css">
     <title>BBeck's Traveller Site - Ship Status</title> 
@@ -22,12 +21,12 @@
                 Declare Destination
             </h2>
 
-            <form id="DeclareDestinationForm" onsubmit="DeclareDestination(event, this)">
+            <form id="DeclareDestinationForm">
                 <!-- Add a new input field for the system name -->
                 <div>
                     <label>
                         System Name:
-                        <input type="text" id="SystemName" placeholder="Enter system name" oninput="searchSystems(this)" required>
+                        <input type="text" id="SystemName" placeholder="Enter system name" required>
                     </label>
                 </div>
 
@@ -38,7 +37,7 @@
                 <input type="hidden" id="SectorID">
                 <input type="hidden" id="SystemID">
 
-                <button type="submit">Declare Destination</button>
+                <button type="button" id="DeclareDestinationButton">Declare Destination</button>
             </form>
         </div>
         <div class="picturebox">
@@ -53,6 +52,6 @@
             <p id="modalMessage"></p>
         </div>
     </div>
-    <script src="scripts/modules/DeclareDestination.mjs" type="module"></script>        
+    <script src="scripts/modules/DeclareDestination.js" type="module"></script>        
 </body> 
 </html>
