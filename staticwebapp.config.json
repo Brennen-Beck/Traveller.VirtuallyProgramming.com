@@ -1,0 +1,12 @@
+{
+  "routes": [
+    {
+      "route": "/",
+      "serve": "/dist/Index.html"
+    }
+  ],
+  "navigationFallback": {
+    "rewrite": "/dist/Index.html"
+  },
+  "output_location": "dist"
+}

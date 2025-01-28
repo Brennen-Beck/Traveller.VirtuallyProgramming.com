@@ -32,7 +32,7 @@ Thumbs.db
 *.temp
 
 # Static web app configuration
-staticwebapp.config.json
+# staticwebapp.config.json
 
 # Miscellaneous
 *.bak
