@@ -2,11 +2,11 @@
   "routes": [
     {
       "route": "/",
-      "serve": "dist/Index.html"
+      "serve": "/index.html"
     }
   ],
   "navigationFallback": {
-    "rewrite": "/dist/Index.html",
+    "rewrite": "/index.html",
     "exclude": ["*.{png,jpg,gif}", "/css/*"]
   }
 }
