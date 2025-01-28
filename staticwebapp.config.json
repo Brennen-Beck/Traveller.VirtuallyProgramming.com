@@ -6,6 +6,7 @@
     }
   ],
   "navigationFallback": {
-    "rewrite": "/dist/Index.html"
+    "rewrite": "/dist/Index.html",
+    "exclude": ["*.{png,jpg,gif}", "/css/*"]
   }
 }
