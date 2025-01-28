@@ -62,7 +62,7 @@ class TravellerTextField extends HTMLElement
                 display: flex;
             }
             .InputBoxTextBoxField {
-                width: 300px;    
+                width: 264px;    
                 height: 19px;
                 justify-content: center;
                 align-items: center;
