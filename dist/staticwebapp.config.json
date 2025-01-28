@@ -2,7 +2,7 @@
   "routes": [
     {
       "route": "/",
-      "serve": "/dist/Index.html"
+      "serve": "/app/dist/Index.html"
     }
   ],
   "navigationFallback": {
