@@ -7,6 +7,5 @@
   ],
   "navigationFallback": {
     "rewrite": "/dist/Index.html"
-  },
-  "output_location": "dist"
+  }
 }
