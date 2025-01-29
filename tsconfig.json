@@ -111,8 +111,9 @@
 
   "include": [
     "./**/*.ts",
-    "./**/*.tsx"
-, "scripts/modules/ShipsStatus.mts"  ],
+    "./**/*.tsx",
+    "scripts/modules/ShipsStatus.mts",
+    "/scripts/*"  ],
   "exclude": [
     "node_modules",
     "dist"

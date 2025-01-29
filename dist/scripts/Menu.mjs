@@ -1,5 +1,5 @@
 "use strict";
-fetch("./dist/scripts/Menu.html")
+fetch("/dist/scripts/Menu.html")
     .then(response => response.text())
     .then(data => {
     document.getElementById('HeaderContent').innerHTML = data;
