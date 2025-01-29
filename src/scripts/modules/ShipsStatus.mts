@@ -1,5 +1,5 @@
 import { LocalGameID, TravellerAPIWebSiteURL, Ship } from "./Globals.js";
-
+//I need it to update this code.
 
 async function getMyAPIData(): Promise<Ship | undefined>
 {
