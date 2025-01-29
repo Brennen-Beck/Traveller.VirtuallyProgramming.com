@@ -1,6 +1,8 @@
 import {z} from 'zod';
 import { LocalGameID, TravellerAPIWebSiteURL } from "./Globals.js";
 
+console.log('Made it to ShipStatus.ts');
+
 
 async function getMyAPIData(): Promise<Ship | undefined>
 {
