@@ -2,9 +2,33 @@ import {LocalGameID} from "./Globals.js";
 import { TravellerAPIWebSiteURL } from "./Globals.js";
 
 
+type ShipLedgerEntryRow = {
+    BankTransactionId: number;
+    Day: number;
+    Year: number;
+    Time: string;
+    Description: string;
+    RunningTotal: number;
+    Revenue: number;
+    Expense: number;
+    StarSystem: string;
+    SystemUWP: string;
+};
+
 class ShipsLedgerEntry
 {
-    constructor(ShipLedgerEntryRow)
+    BankTransactionId: number;
+    Day: number;
+    Year: number;
+    Time: string;
+    Description: string;
+    RunningTotal: number;
+    Revenue: number;
+    Expense: number;
+    StarSystem: string;
+    SystemUWP: string;
+
+    constructor(ShipLedgerEntryRow: ShipLedgerEntryRow)
     {
         this.BankTransactionId =ShipLedgerEntryRow.BankTransactionId;
         this.Day =ShipLedgerEntryRow.Day;
@@ -21,7 +45,7 @@ class ShipsLedgerEntry
 
 
 
-async function getShipLedgerAPIData()
+async function getShipLedgerAPIData(): Promise<ShipsLedgerEntry[]>
 {
     try
     {
@@ -34,7 +58,7 @@ async function getShipLedgerAPIData()
 
         const respObject = await resp.json()
 
-        const ShipLedgerDataArray =respObject.Data.map(Ledger => new ShipsLedgerEntry(Ledger));
+        const ShipLedgerDataArray =respObject.Data.map((Ledger: ShipLedgerEntryRow) => new ShipsLedgerEntry(Ledger));
 
         return ShipLedgerDataArray;
     }
@@ -65,13 +89,13 @@ async function getShipLedgerAPIData()
 })();
 
 
-function DisplayLedgerTable(LedgerArray)
+function DisplayLedgerTable(LedgerArray: ShipsLedgerEntry[])
 {
     const TableContainer =document.getElementById("ShipsLedgerData");
 
     if(TableContainer)
     {
-        const Table =document.createElement("Table");
+        const Table =document.createElement("Table") as HTMLTableElement;
         Table.style.borderCollapse = "collapse"; // Remove visible borders
         Table.style.width = "100%"; // Ensure table takes full width
         Table.className = "CustomTable";

@@ -1,4 +1,5 @@
 import { LocalGameID, TravellerAPIWebSiteURL, Ship } from "./Globals.js";
+//I need it to update this code.
 async function getMyAPIData() {
     try {
         //fetch is a double promise because its response is a promise. Await blocks which is why it's called inside an Async which does not block.
