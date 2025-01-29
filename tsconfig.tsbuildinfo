@@ -1,1 +1,1 @@
-{"root":["./src/modules/ship.mts","./src/modules/shipsstatus.mts","./src/scripts/components/inputbox.mts","./src/scripts/components/travellerframe.mts"],"errors":true,"version":"5.7.2"}
+{"root":["./src/scripts/components/inputbox.mts","./src/scripts/components/travellerframe.mts","./src/scripts/modules/ship.mts","./src/scripts/modules/shipsstatus.mts","./src/scripts/modules/crewroster.js","./src/scripts/modules/declaredestination.js","./src/scripts/modules/globals.js","./src/scripts/modules/shipsledger.js","./src/scripts/modules/speculativeoffers.js"],"version":"5.7.2"}
