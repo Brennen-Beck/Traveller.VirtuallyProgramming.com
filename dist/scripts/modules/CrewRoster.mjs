@@ -1,6 +1,18 @@
 import { LocalGameID } from "./Globals.js";
 import { TravellerAPIWebSiteURL } from "./Globals.js";
 class CrewMember {
+    CrewMemberID;
+    FirstName;
+    LastName;
+    STR;
+    DEX;
+    END;
+    INT;
+    EDU;
+    SOC;
+    CHA;
+    Bank;
+    PortraitBase64;
     constructor(CrewMember) {
         this.CrewMemberID = CrewMember.CrewMemberID;
         this.FirstName = CrewMember.FirstName;
@@ -23,7 +35,7 @@ async function getCrewMemberData() {
             throw new Error('HTTP error! Status: ${resp.status}');
         }
         const respObject = await resp.json();
-        const CrewMembersDataArray = respObject.Data.map(Member => new CrewMember(Member));
+        const CrewMembersDataArray = respObject.Data.map((Member) => new CrewMember(Member));
         return CrewMembersDataArray;
     }
     catch (error) {

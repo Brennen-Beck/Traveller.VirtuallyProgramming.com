@@ -2,9 +2,41 @@ import { LocalGameID } from "./Globals.js";
 import { TravellerAPIWebSiteURL } from "./Globals.js";
 
 
+type SpeculativeOfferData = {
+    OfferId: number;
+    TradeGood: string;
+    BasePrice: number;
+    dTonsAvailable: number;
+    Price: number;
+    Percent: number;
+    StarSystem: string;
+    UWP: string;
+    Day: number;
+    Year: number;
+    Time: string;
+    OfferType: string;
+    Attempt: number;
+};
+
+
 class SpeculativeOffer
 {
-    constructor(SpeculativeOfferRow)
+    OfferId: number;
+    TradeGood: string;
+    BasePrice: number;
+    dTonsAvailable: number;
+    Price: number;
+    Percent: number;
+    StarSystem: string;
+    UWP: string;
+    Day: number;
+    Year: number;
+    Time: string;
+    OfferType: string;
+    Attempt: number;
+
+
+    constructor(SpeculativeOfferRow: SpeculativeOfferData)
     {
         this.OfferId =SpeculativeOfferRow.OfferId;
         this.TradeGood =SpeculativeOfferRow.TradeGood;
@@ -23,7 +55,7 @@ class SpeculativeOffer
 }
 
 
-async function getSpeculativeOfferData()
+async function getSpeculativeOfferData(): Promise<SpeculativeOffer[]>
 {
     try
     {
@@ -37,7 +69,7 @@ async function getSpeculativeOfferData()
         const respObject = await resp.json()
         console.log("Raw API Data:", respObject.Data);
 
-        const SpeculativeOffersDataArray =respObject.Data.map(Offer => new SpeculativeOffer(Offer));
+        const SpeculativeOffersDataArray =respObject.Data.map((Offer: SpeculativeOfferData) => new SpeculativeOffer(Offer));
 
         return SpeculativeOffersDataArray;
     }
@@ -68,13 +100,13 @@ async function getSpeculativeOfferData()
 )();
     
 
-function DisplayOffersTable(OffersArray)
+function DisplayOffersTable(OffersArray: SpeculativeOffer[]): void
 {
     const TableContainer =document.getElementById("SpeculativeOfferData");
 
     if(TableContainer)
     {
-        const Table =document.createElement("Table");
+        const Table =document.createElement("Table") as HTMLTableElement;
         Table.style.borderCollapse = "collapse"; // Remove visible borders
         Table.style.width = "100%"; // Ensure table takes full width
         Table.className = "CustomTable";

@@ -2,9 +2,38 @@ import { LocalGameID } from "./Globals.js";
 import { TravellerAPIWebSiteURL } from "./Globals.js";
 
 
+type CrewMemberData = {
+    CrewMemberID: number;
+    FirstName: string;
+    LastName: string;
+    STR: number;
+    DEX: number;
+    END: number;
+    INT: number;
+    EDU: number;
+    SOC: number;
+    CHA: number;
+    Bank: number;
+    PortraitBase64?: string;
+};
+
 class CrewMember
 {
-    constructor(CrewMember)
+    CrewMemberID: number;
+    FirstName: string;
+    LastName: string;
+    STR: number;
+    DEX: number;
+    END: number;
+    INT: number;
+    EDU: number;
+    SOC: number;
+    CHA: number;
+    Bank: number;
+    PortraitBase64?: string;
+
+
+    constructor(CrewMember: CrewMemberData)
     {
         this.CrewMemberID =CrewMember.CrewMemberID;
         this.FirstName =CrewMember.FirstName;
@@ -22,7 +51,7 @@ class CrewMember
 }
 
 
-async function getCrewMemberData()
+async function getCrewMemberData(): Promise<CrewMember[]>
 {
     try
     {
@@ -35,7 +64,7 @@ async function getCrewMemberData()
 
         const respObject = await resp.json()
 
-        const CrewMembersDataArray =respObject.Data.map(Member => new CrewMember(Member));
+        const CrewMembersDataArray =respObject.Data.map((Member: CrewMemberData) => new CrewMember(Member));
 
         return CrewMembersDataArray;
     }
@@ -65,13 +94,13 @@ async function getCrewMemberData()
 )();
     
 
-function DisplayCrewMembersTable(CrewMembersArray)
+function DisplayCrewMembersTable(CrewMembersArray: CrewMember[]): void
 {
     const TableContainer =document.getElementById("CrewMemberData");
 
     if(TableContainer)
     {
-        const Table =document.createElement("Table");
+        const Table =document.createElement("Table") as HTMLTableElement;
         Table.style.borderCollapse = "collapse"; // Remove visible borders
         Table.style.width = "100%"; // Ensure table takes full width
         Table.className = "CustomTable";

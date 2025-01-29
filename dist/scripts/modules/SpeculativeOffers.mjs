@@ -1,6 +1,19 @@
 import { LocalGameID } from "./Globals.js";
 import { TravellerAPIWebSiteURL } from "./Globals.js";
 class SpeculativeOffer {
+    OfferId;
+    TradeGood;
+    BasePrice;
+    dTonsAvailable;
+    Price;
+    Percent;
+    StarSystem;
+    UWP;
+    Day;
+    Year;
+    Time;
+    OfferType;
+    Attempt;
     constructor(SpeculativeOfferRow) {
         this.OfferId = SpeculativeOfferRow.OfferId;
         this.TradeGood = SpeculativeOfferRow.TradeGood;
@@ -25,7 +38,7 @@ async function getSpeculativeOfferData() {
         }
         const respObject = await resp.json();
         console.log("Raw API Data:", respObject.Data);
-        const SpeculativeOffersDataArray = respObject.Data.map(Offer => new SpeculativeOffer(Offer));
+        const SpeculativeOffersDataArray = respObject.Data.map((Offer) => new SpeculativeOffer(Offer));
         return SpeculativeOffersDataArray;
     }
     catch (error) {
